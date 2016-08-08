@@ -1,17 +1,17 @@
 {
   "name": "mui-data-table",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Data table for react material-ui",
   "repository": {
     "type": "git",
-    "url": "https://github.com/andela-cdaniel"
+    "url": "https://github.com/andela-cdaniel/mui-data-table"
   },
   "author": "Daniel Chinedu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andela-cdaniel"
+    "url": "https://github.com/andela-cdaniel/mui-data-table/issues"
   },
-  "homepage": "https://github.com/andela-cdaniel",
+  "homepage": "https://github.com/andela-cdaniel/mui-data-table",
   "keywords": [
     "react",
     "react material-ui data table",
