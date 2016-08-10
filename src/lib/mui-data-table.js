@@ -61,8 +61,6 @@ export default class MuiDataTable extends React.Component {
     let tableData = props.config.data || [];
     let rowsPerPage = props.config.paginated.constructor === Object ? props.config.paginated.rowsPerPage : 5;
 
-    props.config.columns = injectProp(props.config.columns);
-
     tableData = props.config.paginated ? new Paginate(tableData).perPage(rowsPerPage) : tableData;
 
     if (tableData instanceof Paginate) {
@@ -81,6 +79,7 @@ export default class MuiDataTable extends React.Component {
       iconStyleSearch
     };
 
+    this.columns = injectProp(props.config.columns);
     this.toggleSearch = this.toggleSearch.bind(this);
     this.searchData = this.searchData.bind(this);
     this.handlePerPageChange = this.handlePerPageChange.bind(this);
@@ -299,7 +298,7 @@ export default class MuiDataTable extends React.Component {
           <TableHeader>
             <TableRow style={this.shouldShowItem(this.props.config.search)}>
               <TableHeaderColumn
-                colSpan={this.calcColSpan(this.props.config.columns)}
+                colSpan={this.calcColSpan(this.columns)}
                 style={searchHeaderColumnStyle}
               >
                 <SearchIcon style={this.state.iconStyleSearch} />
