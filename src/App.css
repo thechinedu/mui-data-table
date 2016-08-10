@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  transform: translateX(25%);
+  height: 80px;
+}
+
+.App-header {
+  background-image: linear-gradient(to right, tomato, cyan);
+  background-color: tomato;
+  height: 150px;
+  padding: 20px;
+  color: white;
+  position: relative;
+}
+
+.App-intro {
+  font-size: large;
+}
