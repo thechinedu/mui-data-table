@@ -199,6 +199,8 @@ export default class MuiDataTable extends React.Component {
   }
 
   shouldShowMenu(defaultStyle) {
+    if (this.props.config.paginated && this.props.config.paginated.constructor === Boolean) return defaultStyle;
+
     const menuOptions = this.props.config.paginated.menuOptions;
 
     return menuOptions ? defaultStyle : { display: 'none' };
@@ -275,8 +277,8 @@ export default class MuiDataTable extends React.Component {
   setRowSelection(type, obj) {
     const menuOptions = type === 'object' ? obj.menuOptions : [5, 10, 15];
 
-    return menuOptions.map((num) => (
-      <MenuItem value={num} primaryText={num} />
+    return menuOptions.map((num, index) => (
+      <MenuItem value={num} primaryText={num} key={index} />
     ));
   }
 
@@ -297,7 +299,7 @@ export default class MuiDataTable extends React.Component {
           <TableHeader>
             <TableRow style={this.shouldShowItem(this.props.config.search)}>
               <TableHeaderColumn
-                colSpan={this.calcColSpan(this.columns)}
+                colSpan={this.calcColSpan(this.props.config.columns)}
                 style={searchHeaderColumnStyle}
               >
                 <SearchIcon style={this.state.iconStyleSearch} />
