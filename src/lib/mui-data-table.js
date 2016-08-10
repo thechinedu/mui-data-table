@@ -59,8 +59,11 @@ export default class MuiDataTable extends React.Component {
   constructor(props) {
     super();
     let tableData = props.config.data || [];
+    let rowsPerPage = props.config.paginated.constructor === Object ? props.config.paginated.rowsPerPage : 5;
 
-    tableData = props.config.paginated ? new Paginate(tableData).perPage(5) : tableData;
+    props.config.columns = injectProp(props.config.columns);
+
+    tableData = props.config.paginated ? new Paginate(tableData).perPage(rowsPerPage) : tableData;
 
     if (tableData instanceof Paginate) {
       tableData = tableData.page(1);
@@ -69,17 +72,15 @@ export default class MuiDataTable extends React.Component {
     this.state = {
       disabled: true,
       style: searchStyle,
-      idempotentData: props.config.data,
-      paginatedIdempotentData: new Paginate(props.config.data),
-      perPageSelection: 5,
+      idempodetentData: props.config.data,
+      perPageSelection: props.config.paginated.rowsPerPage || 5,
+      tableData: tableData,
       searchData: [],
       isSearching: false,
-      tableData,
       navigationStyle,
       iconStyleSearch
     };
 
-    this.columns = injectProp(props.config.columns);
     this.toggleSearch = this.toggleSearch.bind(this);
     this.searchData = this.searchData.bind(this);
     this.handlePerPageChange = this.handlePerPageChange.bind(this);
@@ -197,6 +198,12 @@ export default class MuiDataTable extends React.Component {
     return styleObj;
   }
 
+  shouldShowMenu(defaultStyle) {
+    const menuOptions = this.props.config.paginated.menuOptions;
+
+    return menuOptions ? defaultStyle : { display: 'none' };
+  }
+
   toggleOpacity(val) {
     return val === 0 ? 1 : 0;
   }
@@ -207,10 +214,9 @@ export default class MuiDataTable extends React.Component {
     let disabledState = this.state.disabled;
 
     style.opacity = this.toggleOpacity(style.opacity);
-    searchIconStyle.opacity = this.toggleOpacity(iconStyleSearch.opacity);
+    searchIconStyle.opacity = this.toggleOpacity(searchIconStyle.opacity);
 
     disabledState = !disabledState;
-
 
     this.setState({
       style,
@@ -266,6 +272,24 @@ export default class MuiDataTable extends React.Component {
     return undefined;
   }
 
+  setRowSelection(type, obj) {
+    const menuOptions = type === 'object' ? obj.menuOptions : [5, 10, 15];
+
+    return menuOptions.map((num) => (
+      <MenuItem value={num} primaryText={num} />
+    ));
+  }
+
+  handleRowSelection(obj) {
+    if ( obj && obj.constructor === Boolean ) {
+      return this.setRowSelection('', obj);
+    } else if ( obj && obj.constructor === Object ) {
+      return this.setRowSelection('object', obj);
+    } else {
+      return;
+    }
+  }
+
   render() {
     return (
       <Paper zDepth={1}>
@@ -302,15 +326,13 @@ export default class MuiDataTable extends React.Component {
               <TableRowColumn
                 style={{ textAlign: 'right', verticalAlign: 'middle', width: '70%' }}
               >
-                <span style={{ paddingRight: 15 }}>Rows per page:</span>
+                <span style={this.shouldShowMenu({ paddingRight: 15 })}>Rows per page:</span>
                 <SelectField
                   value={this.state.perPageSelection}
-                  style={{ width: 35, fontSize: 13, top: 0 }}
+                  style={this.shouldShowMenu({ width: 35, fontSize: 13, top: 0 })}
                   onChange={this.handlePerPageChange}
                 >
-                  <MenuItem value={5} primaryText="5" />
-                  <MenuItem value={10} primaryText="10" />
-                  <MenuItem value={15} primaryText="15" />
+                  { this.handleRowSelection(this.props.config.paginated) }
                 </SelectField>
               </TableRowColumn>
 
