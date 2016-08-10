@@ -70,7 +70,8 @@ export default class MuiDataTable extends React.Component {
     this.state = {
       disabled: true,
       style: searchStyle,
-      idempodetentData: props.config.data,
+      idempotentData: props.config.data,
+      paginatedIdempotentData: new Paginate(props.config.data),
       perPageSelection: props.config.paginated.rowsPerPage || 5,
       tableData: tableData,
       searchData: [],
