@@ -29,7 +29,9 @@ class App extends Component {
             <h2>Mui Data Table</h2>
           </div>
 
-          <MuiDataTable config={config} />
+          <div style={{margin: 10, marginTop: 30}}>
+            <MuiDataTable config={config} />
+          </div>
         </div>
       </MuiThemeProvider>
     );
