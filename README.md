@@ -3,6 +3,7 @@
 Data table implementation for [react material-ui](http://www.material-ui.com/#/)
 
 [![CircleCI](https://circleci.com/gh/andela-cdaniel/mui-data-table/tree/master.svg?style=shield)](https://circleci.com/gh/andela-cdaniel/mui-data-table/tree/master) [![Coverage Status](https://coveralls.io/repos/github/andela-cdaniel/mui-data-table/badge.svg?branch=ch-add-coverage-info)](https://coveralls.io/github/andela-cdaniel/mui-data-table?branch=ch-add-coverage-info)
+[![npm version](https://badge.fury.io/js/mui-data-table.svg)](https://badge.fury.io/js/mui-data-table)
 
 Mui data table was borne out of a need to integrate
 [Material design data tables](https://material.google.com/components/data-tables.html) with
@@ -11,6 +12,10 @@ by material ui with new behaviour.
 
 Mui data table is still in active development and there is still a plan to add even more features to make it more robust
 and flexible.
+
+## Demo
+
+[demo](https://andela-cdaniel.github.io/mui-data-table/build)
 
 ## Features
 
