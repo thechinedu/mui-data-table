@@ -104,7 +104,12 @@ This will populate the table with the data specified in the `data` array with pa
 |search | string | empty string ('') | Determines which property from the data object should be used to filter the values in the table when search is made. You can filter using multiple columns by seperating each value in the string with a pipe(\|) e.g: `'name\|mood\|location'`.|
 |data | array (containing only objects)| empty array ([]) | Determines the data that is used to populate the table with values.
 |column | array (containing only objects)| | Determines the mapping between the data object, table headers, table columns and table rows. |
-
+|selectable| boolean | true | Determines if the generated rows should be selectable |
+|multiSelectable| boolean | false | Determines if the generated rows should be multi-selectable (Only works when selectable is not `false`)|
+|showCheckboxes| boolean | true | Determines if the generated table are shown with checkboxes|
+|enableSelectAll| boolean | false | Determines if the generated select all button works. (Only works when showCheckboxes is not `false`)| 
+|showRowHover| boolean | true | Determines if the generated rows are highlighted when hover |
+|stripedRows| boolean | false | Determines if the generated rows are striped in color|
 ### Column configuration
 
 The column attribute is used to determine how data in the `data` object should be displayed within the table.
