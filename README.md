@@ -15,7 +15,7 @@ and flexible.
 
 ## Demo
 
-[demo](https://andela-cdaniel.github.io/mui-data-table/build)
+[demo](https://blueyedgeek.github.io/mui-data-table/build/)
 
 ## Features
 
