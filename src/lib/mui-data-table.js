@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn, TableFooter } from 'material-ui/Table';
 
 import SelectField from 'material-ui/SelectField';
@@ -356,5 +357,5 @@ export default class MuiDataTable extends React.Component {
 }
 
 MuiDataTable.propTypes = {
-  config: React.PropTypes.object.isRequired
+  config: PropTypes.object.isRequired
 };
