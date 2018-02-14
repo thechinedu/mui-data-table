@@ -70,7 +70,7 @@ export default class MuiDataTable extends React.Component {
 
     this.state = {
       disabled: true,
-      style: searchStyle,
+      style: viewSearchBarOnload ? {...searchStyle, opacity: 1} : searchStyle,
       idempotentData: props.config.data,
       paginatedIdempotentData: new Paginate(props.config.data),
       perPageSelection: props.config.paginated.rowsPerPage || 5,
@@ -78,7 +78,7 @@ export default class MuiDataTable extends React.Component {
       searchData: [],
       isSearching: false,
       navigationStyle,
-      iconStyleSearch : viewSearchBarOnload ? {...iconStyleSearch, opacity: 1} : iconStyleSearch
+      iconStyleSearch: iconStyleSearch
     };
 
     this.columns = injectProp(props.config.columns);
