@@ -79,7 +79,7 @@ const config = {
       return `${data.name} is in a ${data.mood} mood.`;
     }},
   ]
-  viewSearchBarOnload: true || false // shows search bar on page load or not depending on boolean value
+  viewSearchBarOnload: true // set to true or false. Default it is set to false. Shows the search bar or not depending on the value set
 };
 
 class App extends React.Component {
