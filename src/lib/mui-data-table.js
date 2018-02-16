@@ -79,7 +79,6 @@ export default class MuiDataTable extends React.Component {
       isSearching: false,
       navigationStyle,
       iconStyleSearch: iconStyleSearch,
-      viewSearchBarOnload: viewSearchBarOnload
     };
 
     this.columns = injectProp(props.config.columns);
