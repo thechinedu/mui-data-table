@@ -69,7 +69,7 @@ export default class MuiDataTable extends React.Component {
     }
 
     this.state = {
-      disabled: true,
+      disabled: viewSearchBarOnload ? false : true,
       style: viewSearchBarOnload ? {...searchStyle, opacity: 1} : searchStyle,
       idempotentData: props.config.data,
       paginatedIdempotentData: new Paginate(props.config.data),
