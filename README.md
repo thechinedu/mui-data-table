@@ -1,8 +1,19 @@
 # Mui Data Table
 
+## Important Notice:
+
+This project is no longer actively maintained and as such I won't be be able to respond to issues or accept new or existing pull requests. 
+
+Alternatives are listed below:
+
+- https://github.com/gregnb/mui-datatables
+- https://github.com/hyojin/material-ui-datatables
+
+<hr />
+
 Data table implementation for [react material-ui](http://www.material-ui.com/#/)
 
-[![CircleCI](https://circleci.com/gh/andela-cdaniel/mui-data-table/tree/master.svg?style=shield)](https://circleci.com/gh/andela-cdaniel/mui-data-table/tree/master) [![Coverage Status](https://coveralls.io/repos/github/andela-cdaniel/mui-data-table/badge.svg?branch=ch-add-coverage-info)](https://coveralls.io/github/andela-cdaniel/mui-data-table?branch=ch-add-coverage-info)
+[![CircleCI](https://circleci.com/gh/blueyedgeek/mui-data-table/tree/master.svg?style=shield)](https://circleci.com/gh/blueyedgeek/mui-data-table/tree/master) [![Coverage Status](https://coveralls.io/repos/github/andela-cdaniel/mui-data-table/badge.svg?branch=ch-add-coverage-info)](https://coveralls.io/github/andela-cdaniel/mui-data-table?branch=ch-add-coverage-info)
 [![npm version](https://badge.fury.io/js/mui-data-table.svg)](https://badge.fury.io/js/mui-data-table)
 
 Mui data table was borne out of a need to integrate
@@ -10,8 +21,8 @@ Mui data table was borne out of a need to integrate
 [react material ui](http://www.material-ui.com/#/). It achieves this by extending the table component already provided
 by material ui with new behaviour.
 
-Mui data table is still in active development and there is still a plan to add even more features to make it more robust
-and flexible.
+~Mui data table is still in active development and there is still a plan to add even more features to make it more robust
+and flexible.~
 
 ## Demo
 
