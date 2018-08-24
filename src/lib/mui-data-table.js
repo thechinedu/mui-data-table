@@ -296,8 +296,15 @@ export default class MuiDataTable extends React.Component {
   render() {
     return (
       <Paper zDepth={1}>
-        <Table>
-          <TableHeader>
+        <Table
+          selectable={this.props.config.selectable}
+          multiSelectable={this.props.config.multiSelectable}
+        >
+          <TableHeader
+            displaySelectAll={this.props.config.showCheckboxes}
+            adjustForCheckbox={this.props.config.showCheckboxes}
+            enableSelectAll={this.props.config.enableSelectAll}
+          >
             <TableRow style={this.shouldShowItem(this.props.config.search)}>
               <TableHeaderColumn
                 colSpan={this.calcColSpan(this.columns)}
@@ -320,11 +327,18 @@ export default class MuiDataTable extends React.Component {
             </TableRow>
           </TableHeader>
 
-          <TableBody showRowHover>
+          <TableBody
+            showRowHover={this.props.config.showRowHover}
+            stripedRows={this.props.config.stripedRows}
+            displayRowCheckbox={this.props.config.showCheckboxes}
+          >
             {this.populateTableWithdata(this.state.tableData, this.columns)}
           </TableBody>
 
-          <TableFooter style={this.shouldShowItem(this.props.config.paginated)}>
+          <TableFooter
+            adjustForCheckbox={this.props.config.showCheckboxes}
+            style={this.shouldShowItem(this.props.config.paginated)}
+          >
             <TableRow>
               <TableRowColumn
                 style={{ textAlign: 'right', verticalAlign: 'middle', width: '70%' }}
